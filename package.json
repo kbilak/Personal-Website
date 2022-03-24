@@ -1,0 +1,24 @@
+{
+  "name": "personal-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kbilak/Personal-Website.git"
+  },
+  "author": "Krzysztof Bialk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kbilak/Personal-Website/issues"
+  },
+  "homepage": "https://github.com/kbilak/Personal-Website#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2"
+  }
+}
