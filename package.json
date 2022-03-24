@@ -4,7 +4,7 @@
   "description": "Personal website for my business",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon ./src/app.ts",
+    "dev": "nodemon",
     "build": "rimraf ./build && tsc",
     "start": "npm run build && node build/app.js"
   },
