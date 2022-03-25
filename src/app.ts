@@ -1,3 +1,4 @@
+import * as newsletterControllers from "./controllers/newsletter";
 import * as projectsControllers from "./controllers/projects";
 import * as contactControllers from "./controllers/contact";
 import * as indexControllers from "./controllers/index";
@@ -33,6 +34,7 @@ app.get('/contact', contactControllers.contact);
 app.post('/contact', contactControllers.contactPost);
 app.get('/blog', blogControllers.blog);
 app.get('/projects', projectsControllers.projects)
+app.post('/newsletter', newsletterControllers.newsletterPost);
 
 /**
  * Start of Express server

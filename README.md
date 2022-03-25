@@ -8,7 +8,7 @@ Start of the project: 24.03.2022
 
 ### Contact page
 
-User is able to send email message to me by a contact form. Form is handled by Nodemailer. 
+User is able to send email message to me by a contact form. Form is handled by Nodemailer.
 
 After submitting the form, an email is sent to user's email address and to my email address, so I can respond to it.
 
@@ -34,24 +34,27 @@ Posts are going to be mainly about programming and web development.
 ## To-Do
 
 - add controllers
-- database (?)
 - add templates
 - add data
 - add styles
+- add email templates
 
 ## Setup
 
 To build the project:
+
 ```
 npm run build
 ```
 
 To start project in dev mode:
+
 ```
 npm run dev
 ```
 
 To run in production:
+
 ```
 npm run start
 ```
