@@ -1,5 +1,7 @@
+import * as projectsControllers from "./controllers/projects";
 import * as contactControllers from "./controllers/contact";
-import * as pageControllers from "./controllers/page";
+import * as indexControllers from "./controllers/index";
+import * as blogControllers from "./controllers/blog";
 const ejsMate = require("ejs-mate");
 import express from "express";
 import dotenv from "dotenv";
@@ -22,8 +24,11 @@ app.use(express.static(__dirname + "/public"));
 app.set("views", path.join(__dirname, "../views"));
 
 // App routes config
-app.get('/', pageControllers.index);
+app.get('/', indexControllers.index);
 app.get('/contact', contactControllers.contact);
+app.post('/contact', contactControllers.contactPost);
+app.get('/blog', blogControllers.blog);
+app.get('/projects', projectsControllers.projects)
 
 /**
  * Start of Express server
@@ -32,5 +37,3 @@ app.listen(app.get("port"), () => {
     console.log(`App is running at http:localhost:${process.env.PORT || 3000}`);
     console.log("CTRL+C to stop the server");
 });
-
-export default app;
