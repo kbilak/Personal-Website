@@ -2,11 +2,15 @@ import * as projectsControllers from "./controllers/projects";
 import * as contactControllers from "./controllers/contact";
 import * as indexControllers from "./controllers/index";
 import * as blogControllers from "./controllers/blog";
+import * as database from "./config/db";
 const ejsMate = require("ejs-mate");
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import path from "path";
+
+// Connection to DB
+database.connect();
 
 // Create Express server and dotenv config
 const app = express();
