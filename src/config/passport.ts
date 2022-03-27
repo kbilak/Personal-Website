@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { User, UserDocument } from "../models/User";
 import passportLocal from "passport-local";
+import validPassword from "./password";
 import { NativeError } from "mongoose"
 import passport from "passport";
 
@@ -14,6 +15,18 @@ passport.deserializeUser((id, done) => {
     User.findById(id, (err: NativeError, user: UserDocument) => done(err, user));
 });
 
-const verifyCallback = (email, password, done) => {
-    User.findOne({email: email})
-} 
+const verifyCallback = (email: string, password: string, done: any) => {
+    User.findOne({email: email}, 'email salt hash')
+    .then((user) => {
+        if (!user) return done(null, false);
+        const isValid = validPassword(password, user.hash, user.salt);
+        if (isValid) {
+            return done(null, user);
+        } else {
+            return done(null, false);
+        };
+    })
+    .catch((err) => {done(err)});
+};
+
+passport.use(new LocalStrategy(verifyCallback));
