@@ -31,14 +31,22 @@ app.use(express.static(__dirname + "/public"));
 app.set("views", path.join(__dirname, "../views"));
 
 // App routes config
+
+// User routes
 app.get('/', indexControllers.index);
-app.get('/contact', contactControllers.contact);
-app.post('/contact', contactControllers.contactPost);
 app.get('/blog', blogControllers.blog);
+app.get('/contact', contactControllers.contact);
 app.get('/projects', projectsControllers.projects)
+app.post('/contact', contactControllers.contactPost);
 app.post('/newsletter', newsletterControllers.newsletterPost);
+
+// Admin routes
 app.get('/login', isNotLogin, authControllers.login);
 app.post('/login', isNotLogin, authControllers.loginPost);
+app.get('/register', isNotLogin, authControllers.register);
+app.post('/register', isNotLogin, authControllers.registerPost);
+app.get('/newsletter-new', isLogin, newsletterControllers.newsletterAdmin);
+app.post('/newsletter-new', isLogin, newsletterControllers.newsletterAdminPost);
 
 /**
  * Start of Express server

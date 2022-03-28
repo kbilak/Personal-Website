@@ -43,3 +43,51 @@ export const newsletterPost = async (req: Request, res: Response) => {
         };
     };
 };
+
+/**
+ * Admin page - newsletter
+ * @route GET /newsletter-new
+ */
+export const newsletterAdmin = (req: Request, res: Response) => {
+    res.render("adminNewsletter", {
+        title: "NewsletterAdmin",
+    });
+};
+
+/**
+ * Admin page - new newsletter
+ * @route POST /newsletter-new
+ */
+export const newsletterAdminPost = async (req: Request, res: Response) => {
+    const emails = await Newsletter.find({});
+    const transporter = nodemailer.createTransport({
+        host: String(process.env.EMAIL_HOST),
+        port: Number(process.env.EMAIL_PORT),
+        secure: Boolean(process.env.EMAIL_SECURE),
+        auth: {
+            user: String(process.env.EMAIL_USER),
+            pass: String(process.env.EMAIL_PASS),
+        },
+    });
+
+    for (let i = 0; i <= emails.length; i++) {
+        const mailOptions = {
+            to: emails[i].email,
+            from: String(process.env.EMAIL_USER),
+            subject: String(`${req.body.subject}`),
+            text: String(`${req.body.body}`),
+        };
+
+        transporter.sendMail(mailOptions, (err) => {
+            if (err) {
+                const message = String(err.message);
+                return res.render("adminNewsletter", {
+                    title: String("adminNewsletter"),
+                    message: String(message),
+                    subject: `${req.body.subject}`,
+                    body: `${req.body.body}`,
+                });
+            };
+        });
+    };
+};
