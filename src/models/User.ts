@@ -6,7 +6,7 @@ export type UserDocument = mongoose.Document & {
     password: string;
     hash: string;
     salt: string;
-    active: boolean;
+    isActive: boolean;
 };
 
 const userSchema = new mongoose.Schema<UserDocument>(
@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema<UserDocument>(
         password: { type: String, required: true },
         hash: String,
         salt: String,
-        active: { type: Boolean, default: false },
+        isActive: { type: Boolean, default: false },
     },
     { timestamps: true },
 );
