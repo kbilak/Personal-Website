@@ -36,8 +36,10 @@ app.set("views", path.join(__dirname, "../views"));
 app.get('/', indexControllers.index);
 app.get('/blog', blogControllers.blog);
 app.get('/contact', contactControllers.contact);
+app.get('/blog/:id', blogControllers.blogDetail);
 app.get('/projects', projectsControllers.projects)
 app.post('/contact', contactControllers.contactPost);
+app.get('/projects/:id', projectsControllers.projectsDetail)
 app.post('/newsletter', newsletterControllers.newsletterPost);
 
 // Admin routes

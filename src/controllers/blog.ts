@@ -10,3 +10,13 @@ export const blog = (req: Request, res: Response) => {
         title: "Blog",
     });
 };
+
+/**
+ * Blog detail page
+ * @route GET /blog/:id
+ */
+export const blogDetail = (req: Request, res: Response) => {
+    res.render("blogDetail", {
+        title: "Blog Detail",
+    });
+};

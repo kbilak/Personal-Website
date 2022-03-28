@@ -10,3 +10,13 @@ export const projects = (req: Request, res: Response) => {
         title: "Projects",
     });
 };
+
+/**
+ * Project detail page
+ * @route GET /project/:id
+ */
+export const projectsDetail = (req: Request, res: Response) => {
+    res.render("projectDetail", {
+        title: "Project Detail",
+    });
+};
