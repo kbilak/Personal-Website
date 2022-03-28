@@ -1,7 +1,9 @@
 import * as newsletterControllers from "./controllers/newsletter";
 import * as projectsControllers from "./controllers/projects";
 import * as contactControllers from "./controllers/contact";
+import { isLogin, isNotLogin } from "./middlewares/auth";
 import * as indexControllers from "./controllers/index";
+import * as authControllers from "./controllers/auth";
 import * as blogControllers from "./controllers/blog";
 import * as database from "./config/db";
 const ejsMate = require("ejs-mate");
@@ -35,6 +37,8 @@ app.post('/contact', contactControllers.contactPost);
 app.get('/blog', blogControllers.blog);
 app.get('/projects', projectsControllers.projects)
 app.post('/newsletter', newsletterControllers.newsletterPost);
+app.get('/login', isNotLogin, authControllers.login);
+app.post('/login', isNotLogin, authControllers.loginPost);
 
 /**
  * Start of Express server

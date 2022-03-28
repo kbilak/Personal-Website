@@ -8,7 +8,7 @@ export const isLogin = (req: Request, res: Response, next: NextFunction) => {
     };
 };
 
-export const isLotLogin = (req: Request, res: Response, next: NextFunction) => {
+export const isNotLogin = (req: Request, res: Response, next: NextFunction) => {
     if (!req.isAuthenticated()) {
         next();
     } else {
