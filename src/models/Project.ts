@@ -10,3 +10,19 @@ export type ProjectDocument = mongoose.Document & {
     source_link: string,
     cover_img: string,
 };
+
+const projectSchema =  new mongoose.Schema<ProjectDocument>(
+    {
+        name: String,
+        date_start: Date,
+        date_end: Date,
+        short_description: String,
+        categories: Array,
+        demo_link: String,
+        source_link: String,
+        cover_img: String,
+    },
+    { timestamps: true },
+);
+
+export const Project = mongoose.model<ProjectDocument>("Project", projectSchema);
