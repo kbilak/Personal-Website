@@ -12,16 +12,17 @@ import session from "express-session";
 const ejsMate = require("ejs-mate");
 import passport from "passport";
 import express from "express";
-import dotenv from "dotenv";
 import cors from "cors";
 import path from "path";
+
+// dotenv config
+require('dotenv').config({ path: __dirname+'/.env' });
 
 // Connection to DB
 database.connect();
 
-// Create Express server and dotenv config
+// Create Express server
 const app = express();
-dotenv.config({path: "../config.env"});
 
 // Express config
 
