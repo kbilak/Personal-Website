@@ -25,6 +25,7 @@ Posts are going to be mainly about programming and web development.
 - Node.js, TypeScript
 - Express.js
 - Nodemailer
+- MongoDB
 
 ### Front-end
 
