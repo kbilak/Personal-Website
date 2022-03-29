@@ -74,6 +74,19 @@ app.post('/register', isNotLogin, authControllers.registerPost);
 app.get('/newsletter-new', isLogin, newsletterControllers.newsletterAdmin);
 app.post('/newsletter-new', isLogin, newsletterControllers.newsletterAdminPost);
 
+app.get('/blog-all/add', isLogin, blogControllers.blogAddAdmin);
+app.post('/blog', isLogin, blogControllers.blogAddPostAdmin);
+app.get('/blog-edit/:id', isLogin, blogControllers.blogEditAdmin);
+app.put('/blog/:id', isLogin, blogControllers.blogEditPutAdmin);
+app.delete('/blog/:id', isLogin, blogControllers.blogDeleteAdmin);
+
+app.get('/projects-all/add', isLogin, projectsControllers.projectAddAdmin);
+app.post('/projects', isLogin, projectsControllers.projectAddPostAdmin);
+app.get('/projects-edit/:id', isLogin, projectsControllers.projectEditAdmin);
+app.put('/projects/:id', isLogin, projectsControllers.projectEditPutAdmin);
+app.delete('/projects/:id', isLogin, projectsControllers.projectDeleteAdmin);
+
+
 /**
  * Start of Express server
  */
