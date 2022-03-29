@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { Project } from "../models/Project";
 
 /**
  * Projects page
@@ -7,16 +8,6 @@ import { Request, Response } from "express";
 export const projects = (req: Request, res: Response) => {
     res.render("projects", {
         title: String("Projects"),
-    });
-};
-
-/**
- * Project detail page
- * @route GET /project/:id
- */
-export const projectsDetail = (req: Request, res: Response) => {
-    res.render("projectDetail", {
-        title: String("Project Detail"),
     });
 };
 
@@ -53,7 +44,25 @@ export const projectAddPostAdmin = async (req: Request, res: Response) => {
  * @route PUT /projects/:id
  */
 export const projectEditPutAdmin = async (req: Request, res: Response) => {
-    res.redirect('/projects');
+    try {
+        await Project.findByIdAndUpdate(req.params.id, {
+            name: req.body.name,
+            date_start: req.body.date_start,
+            date_end: req.body.date_end,
+            short_description: req.body.short_description,
+            categories: req.body.categories,
+            demo_link: req.body.demo_link,
+            source_link: req.body.source_link,
+            cover_img: req.body.cover_img,
+            published: req.body.published,
+        });
+        res.redirect('/projects');
+    } catch (error) {
+        res.render("projects", {
+            title: "Projects",
+            message: error,
+        });
+    }
 };
 
 /**
@@ -61,5 +70,13 @@ export const projectEditPutAdmin = async (req: Request, res: Response) => {
  * @route DELETE /projects/:id
  */
 export const projectDeleteAdmin = async (req: Request, res: Response) => {
-    res.redirect('/projects');
+    try {
+        await Project.findByIdAndDelete(req.params.id);
+        res.redirect('/projects');
+    } catch (error) {
+        res.render("projects", {
+            title: "Projects",
+            message: error,
+        });
+    }
 };

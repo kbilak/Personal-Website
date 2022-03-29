@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 export type BlogDocument = mongoose.Document & {
     title: string;
-    date: Date;
+    date: string;
     short_desctiption: string;
     cover_img: string;
     body: string;
@@ -12,7 +12,7 @@ export type BlogDocument = mongoose.Document & {
 const BlogSchema = new mongoose.Schema<BlogDocument>(
     {
         title: String,
-        date: Date,
+        date: String,
         short_desctiption: String,
         cover_img: String,
         body: String,

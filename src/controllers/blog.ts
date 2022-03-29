@@ -1,5 +1,5 @@
-import { check, validationResult } from "express-validator";
 import { Request, Response } from "express";
+import { Blog } from "../models/Blog";
 
 /**
  * Blog page
@@ -54,7 +54,22 @@ export const blogAddPostAdmin = async (req: Request, res: Response) => {
  * @route PUT /blog/:id
  */
 export const blogEditPutAdmin = async (req: Request, res: Response) => {
-    res.redirect('/blog');
+    try {
+        await Blog.findByIdAndUpdate(req.params.id, {
+            title: req.body.title,
+            date: req.body.date,
+            short_description: req.body.short_description,
+            cover_img: req.body.cover_img,
+            body: req.body.body,
+            published: req.body.published,
+        });
+        res.redirect('/blog/:id');
+    } catch (error) {
+        res.render("blog", {
+            title: "Blog",
+            message: error,
+        });
+    };
 };
 
 /**
@@ -62,5 +77,13 @@ export const blogEditPutAdmin = async (req: Request, res: Response) => {
  * @route DELETE /blog/:id
  */
 export const blogDeleteAdmin = async (req: Request, res: Response) => {
-    res.redirect('/blog');
+    try {
+        await Blog.findByIdAndDelete(req.params.id);
+        res.redirect('/blog');
+    } catch (error) {
+        res.render("blog", {
+            title: "Blog",
+            message: error,
+        });
+    };
 };
