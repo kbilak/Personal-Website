@@ -5,9 +5,11 @@ import { Blog } from "../models/Blog";
  * Blog page
  * @route GET /blog
  */
-export const blog = (req: Request, res: Response) => {
+export const blog = async (req: Request, res: Response) => {
+    const posts = await Blog.find({ published: true }).exec();
     res.render("blog", {
-        title: "Blog",
+        title: String("Blog"),
+        posts: posts,
     });
 };
 
@@ -15,9 +17,11 @@ export const blog = (req: Request, res: Response) => {
  * Blog detail page
  * @route GET /blog/:id
  */
-export const blogDetail = (req: Request, res: Response) => {
+export const blogDetail = async (req: Request, res: Response) => {
+    const post = await Blog.find({ id:req.params.id });
     res.render("blogDetail", {
-        title: "Blog Detail",
+        title: String("Blog Detail"),
+        post: post,
     });
 };
 
@@ -35,9 +39,11 @@ export const blogAddAdmin = (req: Request, res: Response) => {
  * Admin page - edit page of post
  * @route GET /blog-edit/:id
  */
-export const blogEditAdmin = (req: Request, res: Response) => {
+export const blogEditAdmin = async (req: Request, res: Response) => {
+    const post = await Blog.findById(req.params.id);
     res.render("blogEditAdmin", {
         title: String("BlogEditAdmin"),
+        post: post,
     });
 };
 
@@ -63,11 +69,11 @@ export const blogEditPutAdmin = async (req: Request, res: Response) => {
             body: req.body.body,
             published: req.body.published,
         });
-        res.redirect('/blog/:id');
+        res.redirect('/blog');
     } catch (error) {
         res.render("blog", {
-            title: "Blog",
-            message: error,
+            title: String("Blog"),
+            message: String(error),
         });
     };
 };
@@ -82,8 +88,8 @@ export const blogDeleteAdmin = async (req: Request, res: Response) => {
         res.redirect('/blog');
     } catch (error) {
         res.render("blog", {
-            title: "Blog",
-            message: error,
+            title: String("Blog"),
+            message: String(error),
         });
     };
 };
