@@ -1,4 +1,3 @@
-import { check, validationResult } from "express-validator";
 import { Request, Response } from "express";
 
 /**
@@ -7,7 +6,7 @@ import { Request, Response } from "express";
  */
 export const projects = (req: Request, res: Response) => {
     res.render("projects", {
-        title: "Projects",
+        title: String("Projects"),
     });
 };
 
@@ -17,6 +16,6 @@ export const projects = (req: Request, res: Response) => {
  */
 export const projectsDetail = (req: Request, res: Response) => {
     res.render("projectDetail", {
-        title: "Project Detail",
+        title: String("Project Detail"),
     });
 };

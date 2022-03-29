@@ -9,7 +9,7 @@ import passport from "passport";
  */
 export const login = (req: Request, res: Response) => {
     res.render("login", {
-        title: "Login",
+        title: String("Login"),
     });
 };
 
@@ -30,7 +30,7 @@ export const loginPost = (req: Request, res: Response) => {
  */
 export const register = (req: Request, res: Response) => {
     res.render("register", {
-        title: "Register",
+        title: String("Register"),
     });
 };
 
@@ -42,8 +42,8 @@ export const registerPost = async (req: Request, res: Response) => {
     const user = await User.findOne({username: req.body.usernme});
     if (user) {
         res.render("register", {
-            title: "Register",
-            message: "User already exist.",
+            title: String("Register"),
+            message: String("User already exist."),
         });
     } else {
         if (req.body.password === req.body.password2) {
@@ -58,8 +58,8 @@ export const registerPost = async (req: Request, res: Response) => {
             res.redirect('/login');
         } else {
             res.render("register", {
-                title: "Register",
-                message: "Error ocurred during register proccess.",
+                title: String("Register"),
+                message: String("Error ocurred during register proccess."),
             });
         }
     }
