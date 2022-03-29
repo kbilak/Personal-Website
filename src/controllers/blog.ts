@@ -20,3 +20,23 @@ export const blogDetail = (req: Request, res: Response) => {
         title: "Blog Detail",
     });
 };
+
+/**
+ * Admin page - all blogs
+ * @route GET /blog-all
+ */
+export const blogAllAdmin = (req: Request, res: Response) => {
+    res.render("blogAllAdmin", {
+        title: String("BlogAllAdmin"),
+    });
+};
+
+/**
+ * Admin page - add blog
+ * @route GET /blog-all/add
+ */
+export const blogAddAdmin = (req: Request, res: Response) => {
+    res.render("blogAddAdmin", {
+        title: String("BlogAddAdmin"),
+    });
+};

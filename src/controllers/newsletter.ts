@@ -50,7 +50,7 @@ export const newsletterPost = async (req: Request, res: Response) => {
  */
 export const newsletterAdmin = (req: Request, res: Response) => {
     res.render("adminNewsletter", {
-        title: "NewsletterAdmin",
+        title: String("NewsletterAdmin"),
     });
 };
 
