@@ -1,7 +1,6 @@
-import { Request, Response, NextFunction } from "express";
 import { User, UserDocument } from "../models/User";
 import passportLocal from "passport-local";
-import validPassword from "./password";
+import { validPassword } from "./password";
 import { NativeError } from "mongoose"
 import passport from "passport";
 
