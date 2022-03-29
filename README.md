@@ -34,9 +34,7 @@ Posts are going to be mainly about programming and web development.
 
 ## To-Do
 
-- add controllers
 - add templates
-- add data
 - add styles
 - add email templates
 
