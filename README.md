@@ -18,6 +18,14 @@ Admin of the page will be able to add new blog post or add new project when logg
 
 In the admin panel it will be possible to add, update and remove posts and projects.
 
+### Newsletter
+
+User can subscribe to newsletter via the newsletter form.
+
+Newsletters are sent via the admin panel.
+
+User can opt out of receiving the newsletter.
+
 ## Technologies
 
 ### Back-end
@@ -37,6 +45,7 @@ In the admin panel it will be possible to add, update and remove posts and proje
 - add templates
 - add styles
 - add email templates
+- add user tokens (newsletter)
 
 ## Setup
 
