@@ -12,11 +12,11 @@ User is able to send email message to me by a contact form. Form is handled by N
 
 After submitting the form, an email is sent to user's email address and to my email address, so I can respond to it.
 
-### Blog
+### Blog & Projects
 
-I, as an admin of the page, or other editor will be able to post new posts.
+Admin of the page will be able to add new blog post or add new project when logged in.
 
-Posts are going to be mainly about programming and web development.
+In the admin panel it will be possible to add, update and remove posts and projects.
 
 ## Technologies
 
