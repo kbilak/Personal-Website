@@ -12,7 +12,7 @@ export type ProjectDocument = mongoose.Document & {
     published: boolean;
 };
 
-const projectSchema =  new mongoose.Schema<ProjectDocument>(
+const projectSchema = new mongoose.Schema<ProjectDocument>(
     {
         name: String,
         date_start: Date,
