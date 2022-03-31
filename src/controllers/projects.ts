@@ -56,7 +56,7 @@ export const projectAddPostAdmin = async (req: Request, res: Response) => {
             published: req.body.published,
         });
         const newProject = await project.save();
-        res.redirect(`/projects-edit/${newProject.id}`);
+        res.redirect(`/projects-edit/${newProject._id}`);
     } catch (error) {
         res.render("projects", {
             title: String("Projects"),

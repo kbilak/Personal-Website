@@ -16,7 +16,7 @@ export const blog = async (req: Request, res: Response) => {
 
 /**
  * Blog detail page
- * @route GET /blog/:blog_id
+ * @route GET /blog/:id
  */
 export const blogDetail = async (req: Request, res: Response) => {
     await Blog.findById(req.params.id, async function (err, post) {
@@ -75,7 +75,23 @@ export const blogEditAdmin = async (req: Request, res: Response) => {
  * @route POST /blog
  */
 export const blogAddPostAdmin = async (req: Request, res: Response) => {
-    res.redirect('/blog');
+    try {
+        const blog = new Blog({
+            title: req.body.title,
+            date: req.body.date,
+            short_description: req.body.short_description,
+            cover_img: req.body.cover_img,
+            body: req.body.body,
+            published: req.body.published,
+        });
+        const newBlog = await blog.save();
+        res.redirect(`/blog-edit/${newBlog._id}`);
+    } catch (error) {
+        res.render("blog", {
+            title: String("blog"),
+            message: error,
+        });
+    };
 };
 
 /**
