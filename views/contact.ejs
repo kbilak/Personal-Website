@@ -1,1 +1,12 @@
 <% layout('_base')%>
+
+<div class="contact">
+    <h1>Have any questions?</h1>
+    <form action="/contact" method="POST">
+        <label for="email">E-Mail</label>
+        <input placeholder="Your e-mail" type="email" id="email" name="email" class="input-email">
+        <label for="message">Message</label>
+        <textarea placeholder="Your message" type="text" id="message" name="message" class="input-message"></textarea>
+        <input type="submit" value="Send message" class="input-submit">
+    </form>
+</div>

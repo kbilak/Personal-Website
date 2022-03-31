@@ -92,6 +92,8 @@ footer div:nth-child(2) {
 
 .index .index-top img {
   margin: 0 50px 0 0;
+  max-height: 200px;
+  max-width: 200px;
   min-height: 200px;
   min-width: 200px;
   border-radius: 50%;
@@ -107,6 +109,75 @@ footer div:nth-child(2) {
   font-weight: 300;
 }
 
+.projects {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contact form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 400px;
+  height: auto;
+}
+
+.contact form label {
+  font-size: 1.1rem;
+  padding: 0 0 10px 0;
+}
+
+.contact form .input-email {
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid gray;
+  padding: 0 10px 0 10px;
+  font-size: 1rem;
+  margin: 0 0 20px 0;
+}
+
+.contact form .input-message {
+  height: 80px;
+  border-radius: 20px;
+  border: 1px solid gray;
+  padding: 10px;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+  margin: 0 0 20px 0;
+}
+
+.contact form .input-submit {
+  height: 40px;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  background-color: black;
+  border: 1px solid black;
+  color: whitesmoke;
+}
+
+.contact form textarea {
+  resize: none;
+}
+
 a {
   text-decoration: none;
   color: #0d0d0d;
@@ -114,5 +185,7 @@ a {
 
 .content {
   min-height: calc(100vh - 200px);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 /*# sourceMappingURL=style.css.map */

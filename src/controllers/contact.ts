@@ -28,6 +28,7 @@ export const contactPost = async (req: Request, res: Response) => {
         return res.render("contact", {
             title: String("Contact"),
             error_arr: String(error_arr),
+            message: "The contact form is incorrectly filled out.",
         });
     };
 
@@ -50,10 +51,10 @@ export const contactPost = async (req: Request, res: Response) => {
 
     transporter.sendMail(mailOptions, (err) => {
         if (err) {
-            const message = String(err.message);
+            const error = String(err.message);
             return res.render("contact", {
                 title: String("Contact"),
-                message: String(message),
+                message: String("Something went wrong! Contact me directly via email: kontakt@krzysztofbialk.pl"),
             });
         } else {
             res.render("contact"), {
