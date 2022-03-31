@@ -27,8 +27,8 @@ export const projectsDetail = async (req: Request, res: Response) => {
                 projects: await Project.find({ published: true }).exec(),
             });
         } else {
-            res.render("projectDetail", {
-                title: String("Project Detail"),
+            res.render("projectsDetail", {
+                title: String("Projects Detail"),
                 project: project,
                 message: "",
             });

@@ -2,8 +2,8 @@ import mongoose from "mongoose";
 
 export type ProjectDocument = mongoose.Document & {
     name: string;
-    date_start: Date;
-    date_end: Date;
+    date_start: string;
+    date_end: string;
     short_description: string;
     categories: [];
     demo_link: string;
@@ -15,8 +15,8 @@ export type ProjectDocument = mongoose.Document & {
 const projectSchema = new mongoose.Schema<ProjectDocument>(
     {
         name: String,
-        date_start: Date,
-        date_end: Date,
+        date_start: String,
+        date_end: String,
         short_description: String,
         categories: Array,
         demo_link: String,

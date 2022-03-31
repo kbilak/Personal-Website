@@ -1,10 +1,31 @@
 <% layout('_base')%>
 
+<h1>Projects</h1>
+<% for (let i=projects.length - 1; i>=0; i--) { %>
+    <div class="post">
+        <a href="/projects/<%=projects[i]._id%>">
+            <div class="post-img">
+                <img src="<%=projects[i].cover_img%>" alt="<%=projects[i].name%>">
+            </div>
+            <div class="post-desc">
+                <h1>
+                    <%=projects[i].name%>
+                </h1>
+                <p>
+                    <%=projects[i].short_description%>
+                </p>
+                <span>
+                    <%=projects[i].date_start%> - <%=projects[i].date_end%>
+                </span>
+            </div>
+        </a>
+    </div>
+    <% } %>
+
 <div class="projects">
     <div>
-        <p>Enjoying my projects?</p>
+        <p>Like my projects?</p>
         <div>
-            
             <a href="https://ko-fi.com/kbialk">
                 <i class="fa-solid fa-mug-hot"></i>
                 Buy me a coffe!

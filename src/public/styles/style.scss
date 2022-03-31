@@ -75,6 +75,25 @@ footer {
 .projects {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    div {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        p {
+            font-size: 1.3rem;
+        }
+        a {
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: center;
+            i {
+                margin: 0 5px 0 0;
+            }
+        }
+    }
 }
 .contact {
     display: flex;
