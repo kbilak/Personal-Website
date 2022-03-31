@@ -1,1 +1,21 @@
 <% layout('_base')%>
+
+<div class="contact">
+    <div class="contact-left">
+        <h1>Want to subscribe to newsletter?</h1>
+        <form action="/newsletter" method="POST">
+            <label for="name">Your name</label>
+            <input placeholder="Your name" type="text" id="name" name="name" class="input-email">
+            <label for="email">E-Mail</label>
+            <input placeholder="Your E-Mail" type="text" name="email" class="input-email">
+            <input type="submit" value="Subscribe" class="input-submit">
+        </form>
+    </div>
+    <div class="contact-right">
+        <h1>What's in the newsletter?</h1>
+        <p>Info about my new open source projects</p>
+        <p>New posts from my blog</p>
+        <p>News from the IT world</p>
+        <p>Many more!</p>
+    </div>
+</div>

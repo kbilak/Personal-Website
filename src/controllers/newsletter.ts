@@ -26,9 +26,10 @@ export const newsletterPost = async (req: Request, res: Response) => {
 
     if (!errors.isEmpty()) {
         const error_arr = errors.array();
-        return res.render("blog", {
-            title: String("Blog"),
+        return res.render("newsletter", {
+            title: String("Newsletter"),
             error_arr: String(error_arr),
+            message: String("The newsletter form is incorrectly filled out.")
         });
     };
 
@@ -50,7 +51,7 @@ export const newsletterPost = async (req: Request, res: Response) => {
         } catch (error) {
             res.render("blog", {
                 title: String("Blog"),
-                message: String("Something went wrong!"),
+                message: String("An error ocurred! Try again later, or write directly to me via mail: kontakt@krzysztofbialk.pl"),
             });
         };
     };

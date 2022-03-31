@@ -10,7 +10,7 @@ import passport from "passport";
 export const login = (req: Request, res: Response) => {
     res.render("login", {
         title: String("Login"),
-        message: "",
+        message: String(""),
     });
 };
 
@@ -32,7 +32,7 @@ export const loginPost = (req: Request, res: Response) => {
 export const register = (req: Request, res: Response) => {
     res.render("register", {
         title: String("Register"),
-        message: "",
+        message: String(""),
     });
 };
 
