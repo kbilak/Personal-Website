@@ -11,3 +11,11 @@ export const index = (req: Request, res: Response) => {
         message: "",
     });
 };
+
+/**
+ * Redirect route
+ * @route GET /*
+ */
+export const redirect = (req: Request, res: Response) => {
+    res.redirect('/');
+};

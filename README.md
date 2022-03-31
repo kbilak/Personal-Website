@@ -47,6 +47,7 @@ User can opt out of receiving the newsletter.
 - add email templates
 - add user tokens (newsletter)
 - setup tests
+- add dark mode
 
 ## Setup
 

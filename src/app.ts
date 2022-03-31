@@ -87,6 +87,7 @@ app.get('/projects-edit/:id', isLogin, projectsControllers.projectEditAdmin);
 app.put('/projects/:id', isLogin, projectsControllers.projectEditPutAdmin);
 app.delete('/projects/:id', isLogin, projectsControllers.projectDeleteAdmin);
 
+app.get('*', indexControllers.redirect);
 
 /**
  * Start of Express server
