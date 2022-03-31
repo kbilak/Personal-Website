@@ -1,20 +1,24 @@
 $font_color: rgb(13, 13, 13);
+@mixin h-f {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0 30px 0;
+    box-sizing: border-box;
+}
 body {
     min-width: 100vh;
+    padding: 0 150px 0 150px;
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
 header {
-    height: 100px;
+    @include h-f;
+    width: 300px
 }
 footer {
-    height: 100px;
-    display: flex;
-    justify-content: space-between;
-    padding: 30px 150px 30px 150px;
-    box-sizing: border-box;
+    @include h-f;
     div {
         width: 33.33%;
         display: flex;
@@ -33,10 +37,33 @@ footer {
         }
     }
 }
+.index {
+    display: flex;
+    flex-direction: column;
+    .index-top {
+        display: flex;
+        flex-direction: row;
+        img {
+            margin: 0 50px 0 0;
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+
+        }
+    }
+    .index-btn {
+        padding: 30px 0 0 0;
+        .index-desc {
+            text-align: justify;
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+    }
+}
 a {
     text-decoration: none;
     color: $font_color;
 }
 .content {
-    height: calc(100vh - 200px);
+    min-height: calc(100vh - 200px);
 }
