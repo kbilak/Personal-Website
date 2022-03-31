@@ -16,14 +16,23 @@ export const blog = async (req: Request, res: Response) => {
 
 /**
  * Blog detail page
- * @route GET /blog/:id
+ * @route GET /blog/:blog_id
  */
 export const blogDetail = async (req: Request, res: Response) => {
-    const post = await Blog.find({ id:req.params.id });
-    res.render("blogDetail", {
-        title: String("Blog Detail"),
-        post: post,
-        message: "",
+    await Blog.findById(req.params.id, async function (err, post) {
+        if (err) {
+            res.render("blog", {
+                title: String("Blog"),
+                message: "Post not found!",
+                posts: await Blog.find({ published: true }).exec()
+            });
+        } else {
+            res.render("blogDetail", {
+                title: String("Blog Detail"),
+                post: post,
+                message: "",
+            });
+        };
     });
 };
 
@@ -43,13 +52,23 @@ export const blogAddAdmin = (req: Request, res: Response) => {
  * @route GET /blog-edit/:id
  */
 export const blogEditAdmin = async (req: Request, res: Response) => {
-    const post = await Blog.findById(req.params.id);
-    res.render("blogEditAdmin", {
-        title: String("BlogEditAdmin"),
-        post: post,
-        message: "",
+    await Blog.findById(req.params.id, async function (err, post) {
+        if (err) {
+            res.render("blog", {
+                title: String("Blog"),
+                message: "Post not found!",
+                posts: await Blog.find({ published: true }).exec()
+            });
+        } else {
+            res.render("blogEditAdmin", {
+                title: String("BlogEditAdmin"),
+                post: post,
+                message: "",
+            });
+        };
     });
 };
+
 
 /**
  * Admin page - Posting new post
