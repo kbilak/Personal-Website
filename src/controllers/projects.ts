@@ -33,7 +33,7 @@ export const projectsDetail = async (req: Request, res: Response) => {
                 message: "",
             });
         };
-    });
+    }).clone();
 };
 
 /**
@@ -52,11 +52,20 @@ export const projectAddAdmin = (req: Request, res: Response) => {
  * @route GET /projects-edit/:id
  */
 export const projectEditAdmin = async (req: Request, res: Response) => {
-    const project =  await Project.findById(req.params.id);
-    res.render("projectEditAdmin", {
-        title: String("BlogEditAdmin"),
-        project: project,
-        message: "",
+    await Project.findById(req.params.id, async function (err, project) {
+        if (err) {
+            res.render("projects", {
+                title: String("Projects"),
+                message: String("Project not found!"),
+                projects: await Project.find({ published: true }).exec(),
+            });
+        } else {
+            res.render("projectEditAdmin", {
+                title: String("ProjectEditAdmin"),
+                project: project,
+                message: "",
+            });
+        };
     });
 };
 
@@ -68,6 +77,7 @@ export const projectAddPostAdmin = async (req: Request, res: Response) => {
     try {
         const project = new Project({
             name: req.body.name,
+            body: req.body.body,
             date_start: req.body.date_start,
             date_end: req.body.date_end,
             short_description: req.body.short_description,
@@ -96,6 +106,7 @@ export const projectEditPutAdmin = async (req: Request, res: Response) => {
     try {
         await Project.findByIdAndUpdate(req.params.id, {
             name: req.body.name,
+            body: req.body.body,
             date_start: req.body.date_start,
             date_end: req.body.date_end,
             short_description: req.body.short_description,
