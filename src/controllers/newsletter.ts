@@ -4,6 +4,16 @@ import { Request, Response } from "express";
 import nodemailer from 'nodemailer';
 
 /**
+ * Newsletter form
+ * @route GET /newsletter
+ */
+export const newsletter = (req: Request, res: Response) => {
+    res.render("newsletter", {
+        title: String("Newsletter"),
+    });
+};
+
+/**
  * Subscribe to newsletter
  * @route POST /newsletter
  */

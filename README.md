@@ -46,6 +46,7 @@ User can opt out of receiving the newsletter.
 - add styles
 - add email templates
 - add user tokens (newsletter)
+- setup tests
 
 ## Setup
 

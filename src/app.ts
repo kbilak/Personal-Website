@@ -63,6 +63,7 @@ app.post('/contact', contactControllers.contactPost);
 
 app.get('/projects', projectsControllers.projects);
 
+app.get('/newsletter', newsletterControllers.newsletter);
 app.post('/newsletter', newsletterControllers.newsletterPost);
 
 // Admin routes
