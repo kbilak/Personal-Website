@@ -63,6 +63,7 @@ app.get('/contact', contactControllers.contact);
 app.post('/contact', contactControllers.contactPost);
 
 app.get('/projects', projectsControllers.projects);
+app.get('/projects/:id', projectsControllers.projectsDetail);
 
 app.get('/newsletter', newsletterControllers.newsletter);
 app.post('/newsletter', newsletterControllers.newsletterPost);

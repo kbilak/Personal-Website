@@ -15,6 +15,28 @@ export const projects = async (req: Request, res: Response) => {
 };
 
 /**
+ * Project detail page
+ * @route GET /projects/:id
+ */
+export const projectsDetail = async (req: Request, res: Response) => {
+    await Project.findById(req.params.id, async function (err, project) {
+        if (err) {
+            res.render("projects", {
+                title: String("Projects"),
+                message: String("Project not found!"),
+                projects: await Project.find({ published: true }).exec(),
+            });
+        } else {
+            res.render("projectDetail", {
+                title: String("Project Detail"),
+                project: project,
+                message: "",
+            });
+        };
+    });
+};
+
+/**
  * Admin page - add project
  * @route GET /projects-all/add
  */

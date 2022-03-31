@@ -36,21 +36,21 @@ export const newsletterPost = async (req: Request, res: Response) => {
     const email = await Newsletter.findOne({email: req.body.email});
 
     if (email) {
-        return res.render("blog", {
-            title: String("Blog"),
+        return res.render("index", {
+            title: String("Index"),
             message: String("That email has already subscribed to the Newsletter!"),
         });
     } else {
         try {
             const newEmail = new Newsletter({name: req.body.name, email: req.body.email});
             await newEmail.save();
-            res.render("blog", {
-                title: String("Blog"),
+            res.render("index", {
+                title: String("Index"),
                 message: String("Thank you for subscribing to newsletter!"),
             });
         } catch (error) {
-            res.render("blog", {
-                title: String("Blog"),
+            res.render("index", {
+                title: String("Index"),
                 message: String("An error ocurred! Try again later, or write directly to me via mail: kontakt@krzysztofbialk.pl"),
             });
         };

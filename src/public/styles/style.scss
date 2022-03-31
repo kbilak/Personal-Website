@@ -151,16 +151,23 @@ a {
         display: flex;
         flex-direction: row;
         .post-img {
-            width: 25%;
+            width: 250px;
             max-height: 100%;
             min-height: 100%;
+            img {
+                max-height: 100%;
+                width: 100%;
+                border-radius: 8px 0 0 8px;
+                object-fit: cover;
+            }
         }
         .post-desc {
-            width: 75%;
+            width: calc(100% - 250px);
             max-height: 100%;
             min-height: 100%;
             display: flex;
             flex-direction: column;
+            margin: 0 0 0 20px;
         }
     }
 }
