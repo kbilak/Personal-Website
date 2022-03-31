@@ -10,6 +10,7 @@ export const blog = async (req: Request, res: Response) => {
     res.render("blog", {
         title: String("Blog"),
         posts: posts,
+        message: "",
     });
 };
 
@@ -22,6 +23,7 @@ export const blogDetail = async (req: Request, res: Response) => {
     res.render("blogDetail", {
         title: String("Blog Detail"),
         post: post,
+        message: "",
     });
 };
 
@@ -32,6 +34,7 @@ export const blogDetail = async (req: Request, res: Response) => {
 export const blogAddAdmin = (req: Request, res: Response) => {
     res.render("blogAddAdmin", {
         title: String("BlogAddAdmin"),
+        message: "",
     });
 };
 
@@ -44,6 +47,7 @@ export const blogEditAdmin = async (req: Request, res: Response) => {
     res.render("blogEditAdmin", {
         title: String("BlogEditAdmin"),
         post: post,
+        message: "",
     });
 };
 

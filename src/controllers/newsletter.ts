@@ -10,6 +10,7 @@ import nodemailer from 'nodemailer';
 export const newsletter = (req: Request, res: Response) => {
     res.render("newsletter", {
         title: String("Newsletter"),
+        message: "",
     });
 };
 
@@ -42,8 +43,9 @@ export const newsletterPost = async (req: Request, res: Response) => {
         try {
             const newEmail = new Newsletter({name: req.body.name, email: req.body.email});
             await newEmail.save();
-            res.render("newsletterThanks", {
-                title: String("NewsletterThanks"),
+            res.render("blog", {
+                title: String("Blog"),
+                message: String("Thank you for subscribing to newsletter!"),
             });
         } catch (error) {
             res.render("blog", {
@@ -61,6 +63,7 @@ export const newsletterPost = async (req: Request, res: Response) => {
 export const newsletterAdmin = (req: Request, res: Response) => {
     res.render("adminNewsletter", {
         title: String("NewsletterAdmin"),
+        message: "",
     });
 };
 
@@ -100,4 +103,5 @@ export const newsletterAdminPost = async (req: Request, res: Response) => {
             };
         });
     };
+    res.redirect('/newsletter-new')
 };

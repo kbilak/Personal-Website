@@ -10,6 +10,7 @@ export const projects = async (req: Request, res: Response) => {
     res.render("projects", {
         title: String("Projects"),
         projects: projects,
+        message: "",
     });
 };
 
@@ -20,6 +21,7 @@ export const projects = async (req: Request, res: Response) => {
 export const projectAddAdmin = (req: Request, res: Response) => {
     res.render("projectAddAdmin", {
         title: String("ProjectAddAdmin"),
+        message: "",
     });
 };
 
@@ -32,6 +34,7 @@ export const projectEditAdmin = async (req: Request, res: Response) => {
     res.render("projectEditAdmin", {
         title: String("BlogEditAdmin"),
         project: project,
+        message: "",
     });
 };
 

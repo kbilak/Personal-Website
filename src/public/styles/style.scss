@@ -15,7 +15,11 @@ body {
 }
 header {
     @include h-f;
-    width: 300px
+    width: 300px;
+    a {
+        display: flex;
+        align-items: center;
+    }
 }
 footer {
     @include h-f;
@@ -45,8 +49,8 @@ footer {
         flex-direction: row;
         img {
             margin: 0 50px 0 0;
-            height: 200px;
-            width: 200px;
+            min-height: 200px;
+            min-width: 200px;
             border-radius: 50%;
 
         }

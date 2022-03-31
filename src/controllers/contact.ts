@@ -9,6 +9,7 @@ import nodemailer from 'nodemailer';
 export const contact = (req: Request, res: Response) => {
     res.render("contact", {
         title: "Contact",
+        message: "",
     });
 };
 
