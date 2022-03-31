@@ -88,14 +88,25 @@ footer div:nth-child(2) {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.index .index-top h1 {
+  margin-top: 0;
+}
+
+.index .index-top p, .index .index-top span {
+  font-size: 1.1rem;
 }
 
 .index .index-top img {
   margin: 0 50px 0 0;
-  max-height: 200px;
-  max-width: 200px;
-  min-height: 200px;
-  min-width: 200px;
+  max-height: 250px;
+  max-width: 250px;
+  min-height: 250px;
+  min-width: 250px;
   border-radius: 50%;
 }
 
@@ -105,7 +116,7 @@ footer div:nth-child(2) {
 
 .index .index-btn .index-desc {
   text-align: justify;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   font-weight: 300;
 }
 
@@ -123,13 +134,21 @@ footer div:nth-child(2) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.contact form {
+.contact .contact-left {
+  width: 50%;
+}
+
+.contact .contact-left form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -141,12 +160,12 @@ footer div:nth-child(2) {
   height: auto;
 }
 
-.contact form label {
+.contact .contact-left form label {
   font-size: 1.1rem;
   padding: 0 0 10px 0;
 }
 
-.contact form .input-email {
+.contact .contact-left form .input-email {
   height: 40px;
   border-radius: 20px;
   border: 1px solid gray;
@@ -155,7 +174,7 @@ footer div:nth-child(2) {
   margin: 0 0 20px 0;
 }
 
-.contact form .input-message {
+.contact .contact-left form .input-message {
   height: 80px;
   border-radius: 20px;
   border: 1px solid gray;
@@ -165,7 +184,7 @@ footer div:nth-child(2) {
   margin: 0 0 20px 0;
 }
 
-.contact form .input-submit {
+.contact .contact-left form .input-submit {
   height: 40px;
   border-radius: 20px;
   font-size: 1.1rem;
@@ -174,8 +193,20 @@ footer div:nth-child(2) {
   color: whitesmoke;
 }
 
-.contact form textarea {
+.contact .contact-left form textarea {
   resize: none;
+}
+
+.contact .contact-right {
+  width: 50%;
+}
+
+.contact .contact-right h1 {
+  margin-bottom: 30px;
+}
+
+.contact .contact-right p {
+  font-size: 1.2rem;
 }
 
 a {

@@ -47,21 +47,27 @@ footer {
     .index-top {
         display: flex;
         flex-direction: row;
+        align-items: center;
+        h1 {
+            margin-top: 0;
+        }
+        p, span {
+            font-size: 1.1rem;
+        }
         img {
             margin: 0 50px 0 0;
-            max-height: 200px;
-            max-width: 200px;
-            min-height: 200px;
-            min-width: 200px;
+            max-height: 250px;
+            max-width: 250px;
+            min-height: 250px;
+            min-width: 250px;
             border-radius: 50%;
-
         }
     }
     .index-btn {
         padding: 30px 0 0 0;
         .index-desc {
             text-align: justify;
-            font-size: 0.9rem;
+            font-size: 1.2rem;
             font-weight: 300;
         }
     }
@@ -72,44 +78,57 @@ footer {
 }
 .contact {
     display: flex;
-    flex-direction: column;
-    form {
-        
-        display: flex;
-        flex-direction: column;
-        width: 400px;
-        height: auto;
-        label {
-            font-size: 1.1rem;
-            padding: 0 0 10px 0;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    .contact-left {
+        width: 50%;
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            height: auto;
+            label {
+                font-size: 1.1rem;
+                padding: 0 0 10px 0;
+            }
+            .input-email {
+                height: 40px;
+                border-radius: 20px;
+                border: 1px solid gray;
+                padding: 0 10px 0 10px;
+                font-size: 1rem;
+                margin: 0 0 20px 0;
+            }
+            .input-message {
+                height: 80px;
+                border-radius: 20px;
+                border: 1px solid gray;
+                padding: 10px;
+                font-size: 1rem;
+                font-family: 'Roboto', sans-serif;
+                margin: 0 0 20px 0;
+            }
+            .input-submit {
+                height: 40px;
+                border-radius: 20px;
+                font-size: 1.1rem;
+                background-color: black;
+                border: 1px solid black;
+                color: whitesmoke;
+            }
+            textarea {
+                resize: none;
+            }
         }
-        .input-email {
-            height: 40px;
-            border-radius: 20px;
-            border: 1px solid gray;
-            padding: 0 10px 0 10px;
-            font-size: 1rem;
-            margin: 0 0 20px 0;
+    }
+    .contact-right {
+        width: 50%;
+        h1 {
+            margin-bottom: 30px;
         }
-        .input-message {
-            height: 80px;
-            border-radius: 20px;
-            border: 1px solid gray;
-            padding: 10px;
-            font-size: 1rem;
-            font-family: 'Roboto', sans-serif;
-            margin: 0 0 20px 0;
-        }
-        .input-submit {
-            height: 40px;
-            border-radius: 20px;
-            font-size: 1.1rem;
-            background-color: black;
-            border: 1px solid black;
-            color: whitesmoke;
-        }
-        textarea {
-            resize: none;
+        p {
+            font-size: 1.2rem;
         }
     }
 }
