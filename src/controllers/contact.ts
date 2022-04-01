@@ -56,7 +56,7 @@ export const contactPost = async (req: Request, res: Response) => {
         to: String(process.env.EMAIL_ADMIN),
         from: String(process.env.EMAIL_ADMIN),
         subject: String(`New email from ${req.body.email}`),
-        test: String(`${req.body.message}`),
+        text: String(`${req.body.message}`),
     };
 
     transporter.sendMail(userMailOptions, (err) => {
@@ -68,15 +68,12 @@ export const contactPost = async (req: Request, res: Response) => {
         } else {
             transporter.sendMail(adminMailOptions, (err) => {
                 if (err) {
-                    return res.render("contact", {
+                    res.render("contact", {
                         title: String("Contact"),
                         message: String("Something went wrong! Contact me directly via email: kontakt@krzysztofbialk.pl"),
                     });
                 } else {
-                    return res.render("contact"), {
-                        title: String("Contact"),
-                        message: String("Thank You for contacting me!"),
-                    };
+                    res.render("index", {message: 'Thank You for contacting me!'});
                 };
             });
         };
