@@ -229,6 +229,13 @@ footer div:nth-child(2) {
   background-color: black;
   border: 1px solid black;
   color: whitesmoke;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+.contact .contact-left form .input-submit:hover {
+  color: black;
+  background-color: whitesmoke;
 }
 
 .contact .contact-left form textarea {
@@ -308,6 +315,81 @@ a {
       -ms-flex-direction: column;
           flex-direction: column;
   margin: 0 0 0 20px;
+}
+
+.post_detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.post_detail .post_img {
+  height: 200px;
+  overflow: hidden;
+  margin: 0 0 20px 0;
+}
+
+.post_detail .post_img img {
+  width: 100%;
+  max-height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-transition: -webkit-transform .5s ease;
+  transition: -webkit-transform .5s ease;
+  transition: transform .5s ease;
+  transition: transform .5s ease, -webkit-transform .5s ease;
+}
+
+.post_detail .post_img:hover img {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.post_detail .post_project {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.post_detail .post_project span {
+  width: 33.33%;
+}
+
+.post_detail .post_project span:nth-child(2) {
+  text-align: center;
+}
+
+.post_detail .post_project div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 33.33%;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+.post_detail .post_project div a {
+  width: auto;
+}
+
+.post_detail .post_project div a:nth-child(1) {
+  margin: 0 30px 0 0;
+}
+
+.post_detail h1 {
+  margin: 20px 0 20px 0;
 }
 
 .content {

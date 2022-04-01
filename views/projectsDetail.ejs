@@ -1,8 +1,27 @@
 <% layout('_base')%>
 
-    <p>
+<div class="post_detail">
+    <div class="post_img">
+        <img src="<%=project.cover_img%>" alt="<%=project.name%>">
+    </div>
+    <div class="post_project">
+        <span>
+            <%=project.date_start%>  -  <%=project.date_end%>
+        </span>
+        <span>
+            <% for (let i = 0; i <= project.categories.length - 1; i++) { %>
+                <%=project.categories[i]%>
+            <% } %>
+        </span>
+        <div>
+            <a href="<%=project.demo_link%>">Demo</a>
+            <a href="<%=project.source_link%>">Source Code</a>
+        </div>
+    </div>
+    <h1>
         <%=project.name%>
-    </p>
-    <p>
+    </h1>
+    <div>
         <%-project.body%>
-    </p>
+    </div>
+</div>

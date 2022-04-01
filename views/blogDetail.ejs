@@ -1,5 +1,16 @@
 <% layout('_base')%>
 
-<p>
-    <%=post.title%>
-</p>
+<div class="post_detail">
+    <div class="post_img">
+        <img src="<%=post.cover_img%>" alt="<%=post.title%>">
+    </div>
+    <p>
+        <%=post.date%>
+    </p>
+    <h1>
+        <%=post.title%>
+    </h1>
+    <div>
+        <%-post.body%>
+    </div>
+</div>
