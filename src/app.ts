@@ -1,16 +1,11 @@
 import * as newsletterControllers from "./controllers/newsletter";
 import * as projectsControllers from "./controllers/projects";
 import * as contactControllers from "./controllers/contact";
-import { isLogin, isNotLogin } from "./middlewares/auth";
 import * as indexControllers from "./controllers/index";
-import * as authControllers from "./controllers/auth";
 import * as blogControllers from "./controllers/blog";
 import cookieParser from "cookie-parser";
 import * as database from "./config/db";
-import MongoStore from "connect-mongo";
-import session from "express-session";
 const ejsMate = require("ejs-mate");
-import passport from "passport";
 import express from "express";
 import cors from "cors";
 import path from "path";
@@ -36,17 +31,6 @@ app.use(express.static(path.join(__dirname, "public"), { maxAge: 31557600000 }))
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
-app.use(session({ 
-    secret: String(process.env.SESSION_SECRET),
-    resave: false,
-    saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: String(process.env.MONGO_URI) }),
-    cookie: { maxAge: 1000 * 60 * 60 * 60 },
-}));
-
-require('./config/passport')(passport);
-app.use(passport.session());
-app.use(passport.initialize());
 
 app.use((req, res, next) => {next()});
 app.set("port", Number(process.env.PORT) || 3000);
@@ -67,27 +51,6 @@ app.get('/projects/:id', projectsControllers.projectsDetail);
 
 app.get('/newsletter', newsletterControllers.newsletter);
 app.post('/newsletter', newsletterControllers.newsletterPost);
-
-// Admin routes
-app.get('/login', isNotLogin, authControllers.login);
-app.post('/login', isNotLogin, authControllers.loginPost);
-app.get('/register', isNotLogin, authControllers.register);
-app.post('/register', isNotLogin, authControllers.registerPost);
-
-app.get('/newsletter-new', isLogin, newsletterControllers.newsletterAdmin);
-app.post('/newsletter-new', isLogin, newsletterControllers.newsletterAdminPost);
-
-app.get('/blog-all/add', isLogin, blogControllers.blogAddAdmin);
-app.post('/blog', isLogin, blogControllers.blogAddPostAdmin);
-app.get('/blog-edit/:id', isLogin, blogControllers.blogEditAdmin);
-app.put('/blog/:id', isLogin, blogControllers.blogEditPutAdmin);
-app.delete('/blog/:id', isLogin, blogControllers.blogDeleteAdmin);
-
-app.get('/projects-all/add', isLogin, projectsControllers.projectAddAdmin);
-app.post('/projects', isLogin, projectsControllers.projectAddPostAdmin);
-app.get('/projects-edit/:id', isLogin, projectsControllers.projectEditAdmin);
-app.put('/projects/:id', isLogin, projectsControllers.projectEditPutAdmin);
-app.delete('/projects/:id', isLogin, projectsControllers.projectDeleteAdmin);
 
 app.get('*', indexControllers.redirect);
 
