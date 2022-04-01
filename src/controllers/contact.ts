@@ -40,27 +40,45 @@ export const contactPost = async (req: Request, res: Response) => {
             user: String(process.env.EMAIL_USER),
             pass: String(process.env.EMAIL_PASS),
         },
+        tls: {
+            ciphers: String('SSLv3'),
+        },
     });
 
-    const mailOptions = {
-        to: String(process.env.EMAIL_ADMIN),
-        from: String(`${req.body.email}`),
-        subject: String("Contact form - new message"),
-        text: String(`${req.body.message}`),
+    const userMailOptions = {
+        to: String(`${req.body.email}`),
+        from: String(process.env.EMAIL_ADMIN),
+        subject: String("Thank You for contacting me!"),
+        text: String(`Thank You so much for contacting me.\nI'll reply to your message as soon as possible.\nYour message:\n${req.body.message}`),
     };
 
-    transporter.sendMail(mailOptions, (err) => {
+    const adminMailOptions = {
+        to: String(process.env.EMAIL_ADMIN),
+        from: String(process.env.EMAIL_ADMIN),
+        subject: String(`New email from ${req.body.email}`),
+        test: String(`${req.body.message}`),
+    };
+
+    transporter.sendMail(userMailOptions, (err) => {
         if (err) {
-            const error = String(err.message);
             return res.render("contact", {
                 title: String("Contact"),
                 message: String("Something went wrong! Contact me directly via email: kontakt@krzysztofbialk.pl"),
             });
         } else {
-            res.render("contact"), {
-                title: String("Contact"),
-                message: String("Thank You for contacting me!"),
-            };
+            transporter.sendMail(adminMailOptions, (err) => {
+                if (err) {
+                    return res.render("contact", {
+                        title: String("Contact"),
+                        message: String("Something went wrong! Contact me directly via email: kontakt@krzysztofbialk.pl"),
+                    });
+                } else {
+                    return res.render("contact"), {
+                        title: String("Contact"),
+                        message: String("Thank You for contacting me!"),
+                    };
+                };
+            });
         };
     });
 };
