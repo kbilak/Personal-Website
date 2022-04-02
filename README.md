@@ -1,12 +1,14 @@
 ![img1](https://i.ibb.co/3vFcfsF/Screenshot-2022-04-01-at-20-54-55-Krzysztof-Bia-k.png)
 ![img2](https://i.ibb.co/DG1CL3d/Screenshot-2022-04-01-at-20-55-04-Krzysztof-Bia-k.png)
 
-# Personal-Website
+# Personal Website
 
 This repo contains all files and config of my 2nd (refreshed) Personal Website. The site will have a new layout, all my projects, contact and information about my business, and a blog.
 
 Start of the project: 24.03.2022
+
 First version of the project: 02.03.2022
+
 NOTE: this readme describes what final product will look like
 
 ## Functionalities
