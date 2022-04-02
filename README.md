@@ -1,8 +1,10 @@
-# Personal-Website
+# Personal Website
 
 This repo contains all files and config of my 2nd (refreshed) Personal Website. The site will have a new layout, all my projects, contact and information about my business, and a blog.
 
 Start of the project: 24.03.2022
+First version of the project: 02.03.2022
+NOTE: this readme describes what final product will look like
 
 ## Functionalities
 
