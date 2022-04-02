@@ -3,7 +3,6 @@ import * as projectsControllers from "./controllers/projects";
 import * as contactControllers from "./controllers/contact";
 import * as indexControllers from "./controllers/index";
 import * as blogControllers from "./controllers/blog";
-import cookieParser from "cookie-parser";
 import * as database from "./config/db";
 const ejsMate = require("ejs-mate");
 import express from "express";
@@ -20,7 +19,6 @@ database.connect();
 const app = express();
 
 // Express config
-
 app.use(cors());
 
 app.engine("ejs", ejsMate);
@@ -30,7 +28,6 @@ app.set("views", path.join(__dirname, "../views"));
 app.use(express.static(path.join(__dirname, "public"), { maxAge: 31557600000 }));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use(cookieParser());
 
 app.use((req, res, next) => {next()});
 app.set("port", Number(process.env.PORT) || 3000);

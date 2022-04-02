@@ -1,7 +1,6 @@
 import { check, validationResult } from "express-validator";
 import { Newsletter } from "../models/Newsletter";
 import { Request, Response } from "express";
-import nodemailer from 'nodemailer';
 
 /**
  * Newsletter form
