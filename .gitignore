@@ -106,3 +106,5 @@ config.env
 
 build/
 src/public/
+project.md
+blog.md

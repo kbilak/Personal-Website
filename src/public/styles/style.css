@@ -277,7 +277,7 @@ a {
   margin: 0 0 40px 0;
 }
 
-.post a {
+.post .a-main {
   width: 100%;
   height: 100%;
   display: -webkit-box;
@@ -289,21 +289,21 @@ a {
           flex-direction: row;
 }
 
-.post a .post-img {
+.post .a-main .post-img {
   width: 250px;
   max-height: 100%;
   min-height: 100%;
 }
 
-.post a .post-img img {
-  max-height: 100%;
+.post .a-main .post-img img {
+  height: 100%;
   width: 100%;
   border-radius: 8px 0 0 8px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.post a .post-desc {
+.post .a-main .post-desc {
   width: calc(100% - 250px);
   max-height: 100%;
   min-height: 100%;
