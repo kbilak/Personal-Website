@@ -7,7 +7,7 @@ This repo contains all files and config of my 2nd (refreshed) Personal Website. 
 
 Start of the project: 24.03.2022
 
-First version of the project: 02.03.2022
+First version of the project: 02.04.2022
 
 NOTE: this readme describes what final product will look like
 
